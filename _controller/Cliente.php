@@ -47,14 +47,14 @@ class Cliente extends MCliente {
     private function zoneNovo()
     {
         //code ...
-        require_once '_view/usuario.form.php';
+        require_once '_view/cliente.form.php';
     }
 
     private function zoneInit()
     {
-        $dados = $this->listaUsuarios();
+        $dados = $this->listaClientes();
 
-        require_once '_view/usuarios.php';
+        require_once '_view/clientes.php';
     }
 
 }

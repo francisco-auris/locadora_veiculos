@@ -92,5 +92,20 @@ class MCliente extends Connect {
 
     }
 
+    public function listaClientes(){
+
+        $sql = "SELECT * FROM clientes";
+        $consulta = $this->conn->query( $sql );
+
+        if( $consulta and $consulta->rowCount() > 0 ){
+            $objeto = $consulta->fetchAll(PDO::FETCH_OBJ);
+            return $objeto;
+        }
+        else {
+            return false;
+        }
+
+    }
+
 
 }

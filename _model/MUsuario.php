@@ -45,7 +45,7 @@ class MUsuario extends Connect {
     //public function
     public function searchLogin( $login, $senha ){
 
-        $sql = 'SELECT * FROM usuarios WHERE user_login= :login AND user_senha= :senha';
+        $sql = 'SELECT * FROM usuarios U INNER JOIN funcionarios F ON U.id_func = F.id_func WHERE U.user_login= :login AND U.user_senha= :senha';
         $consulta = $this->conn->prepare( $sql );
 
         $consulta->bindParam(":login", $login, PDO::PARAM_STR);
@@ -67,7 +67,7 @@ class MUsuario extends Connect {
 
     public function listaUsuarios(){
 
-        $sql = "SELECT * FROM usuarios";
+        $sql = "SELECT * FROM usuarios U INNER JOIN funcionarios F ON U.id_func = F.id_func";
         $consulta = $this->conn->query( $sql );
 
         if( $consulta and $consulta->rowCount() > 0 ){

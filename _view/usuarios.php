@@ -8,13 +8,26 @@
         <td>Nome</td>
         <td>Login</td>
     </thead>
-</table>
 <?php
 if( $dados != false ){
 
-    print_r($dados);
+    echo '<tbody>';
+    //print_r($dados);
+    for( $i=0; $i < count($dados); $i++ ){
+
+        echo '<tr>';
+            echo '<td>'.$dados[$i]->id_user.'</td>';
+            echo '<td>'.$dados[$i]->func_nomecompleto.'</td>';
+            echo '<td>'.$dados[$i]->user_login.'</td>';
+        echo '</tr>';
+
+    }
+
+    echo '</tbody>';
 
 }
 else {
     echo '<center>Nenhum usuário cadastrado</center>';
 }
+?>
+</table>

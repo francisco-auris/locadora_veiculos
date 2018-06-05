@@ -11,9 +11,9 @@ include_once "autoload.php";
 $_class;
 
 //logic system initial
-$_SESSION[SS_LOGIN] = 'auris';
+/*$_SESSION[SS_LOGIN] = 'auris';
 $_SESSION[SS_NAME] = 'auris maciel';
-$_SESSION[SS_ID] = base64_encode('1');
+$_SESSION[SS_ID] = base64_encode('1');*/
 
 if( isset( $_SESSION[SS_LOGIN] ) and strlen( $_SESSION[SS_LOGIN] ) > 0 )
 {

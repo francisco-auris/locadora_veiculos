@@ -96,6 +96,21 @@ class MVeiculo extends Connect {
 
     }
 
+    public function listaVeiculos(){
+
+        $sql = "SELECT * FROM veiculo V INNER JOIN cat_veiculo C ON V.id_cat = C.id_cat";
+        $consulta = $this->conn->query( $sql );
+
+        if( $consulta and $consulta->rowCount() > 0 ){
+            $objeto = $consulta->fetchAll(PDO::FETCH_OBJ);
+            return $objeto;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     
 
 }

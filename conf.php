@@ -1,6 +1,6 @@
 <?php
 define( 'DS', DIRECTORY_SEPARATOR );
-define( 'ROOT', 'http://192.168.16.50/locadora/' );
+define( 'ROOT', 'http://localhost/locadora/' );
 //session constates ref name
 define( 'SS_LOGIN', 'app_login' );
 define( 'SS_NAME', 'app_nameuser' );
@@ -13,4 +13,4 @@ define( 'MTYPE', 'message_type' );
 define( 'DB', 'locadora' );
 define( 'DBHOST', 'localhost');
 define( 'DBUSER', 'root');
-define( 'DBPSWD', 'N3wG3r3nc1A' );
+define( 'DBPSWD', '' );

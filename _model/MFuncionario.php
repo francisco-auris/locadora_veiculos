@@ -92,6 +92,21 @@ class MFuncionario extends Connect {
 
     }
 
+    public function listaFuncionarios(){
+
+        $sql = "SELECT * FROM funcionarios";
+        $consulta = $this->conn->query( $sql );
+
+        if( $consulta and $consulta->rowCount() > 0 ){
+            $objeto = $consulta->fetchAll(PDO::FETCH_OBJ);
+            return $objeto;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     
 
 }

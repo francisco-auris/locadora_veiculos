@@ -57,9 +57,9 @@ class Login extends Usuario {
             }
             else {
                 //cria session de usuario
-                $_SESSION[SS_LOGIN] = $vef_usr['login'];
-                $_SESSION[SS_NAME] = $vef_usr['nome'];
-                $_SESSION[SS_ID] = base64_encode($vef_usr['id']);
+                $_SESSION[SS_LOGIN] = $vef_usr['user_login'];
+                $_SESSION[SS_NAME] = $vef_usr['func_nomecompleto'];
+                $_SESSION[SS_ID] = base64_encode($vef_usr['id_user']);
 
                 header('Location: .');
 

@@ -1,9 +1,9 @@
 <?php
 namespace Controller;
 
-use Model\MFuncionario as MFuncionario;
+use Model\MVeiculo as MVeiculo;
 
-class Funcionario extends MFuncionario {
+class Carro extends MVeiculo {
 
     private $zones = ['novo','deletar'];
 
@@ -47,14 +47,14 @@ class Funcionario extends MFuncionario {
     private function zoneNovo()
     {
         //code ...
-        require_once '_view/funcionario.form.php';
+        require_once '_view/carro.form.php';
     }
 
     private function zoneInit()
     {
-        $dados = $this->listaFuncionarios();
+        $dados = $this->listaVeiculos();
 
-        require_once '_view/funcionarios.php';
+        require_once '_view/carros.php';
     }
 
 }
