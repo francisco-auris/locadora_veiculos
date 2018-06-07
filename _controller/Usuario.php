@@ -47,7 +47,15 @@ class Usuario extends MUsuario {
     private function zoneNovo()
     {
         //code ...
+        $inst = new \Model\MFuncionario;
+        $func = $inst->listaFuncionarios(); //captura lista de funcionarios
+
         require_once '_view/usuario.form.php';
+
+        if( isset($_GET['act']) AND $_GET['act'] == 'salvar' ){
+            $this->actNovoUsuario();
+            //print_r($_POST);
+        }
     }
 
     private function zoneInit()
@@ -55,6 +63,39 @@ class Usuario extends MUsuario {
         $dados = $this->listaUsuarios();
 
         require_once '_view/usuarios.php';
+    }
+
+    //actions
+    private function actNovoUsuario(){
+
+        //vars
+        $funcionario = (isset($_POST['funcionario']) and strlen($_POST['funcionario']) > 0) ? $_POST['funcionario'] : null;
+        $login = (isset($_POST['login']) and strlen($_POST['login']) > 2) ? $_POST['login'] : null;
+        $senha = (isset($_POST['senha']) and strlen($_POST['senha']) > 0) ? $_POST['senha'] : null;
+
+        if( $funcionario == null OR $login == null OR $senha == null ){
+            Message::setMessage( ['warning', 'Verifique o preenchimento dos campos.', 'Usuario'] );
+        }
+        else {
+
+            //enviar para modelagem no banco
+            $this->idfunc = $funcionario;
+            $this->login  = $login;
+            $this->senha  = $senha;
+
+            //action exec
+            $act = $this->actionCreate();
+
+            if( $act == true ){
+                Message::setMessage( ['success', 'Usuário cadastrado', 'Usuario'] );
+                echo '<script>window.location.href="?window=usuario&p=novo";</script>';
+            }
+            else {
+                Message::setMessage( ['danger', 'Error: '.$act, 'Usuario'] );
+            }
+
+        }
+
     }
 
 }

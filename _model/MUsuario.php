@@ -7,9 +7,9 @@ use \PDO as PDO;
 class MUsuario extends Connect {
     
     private $id;
-    private $nome;
-    private $login;
-    private $senha;
+    protected $idfunc;
+    protected $login;
+    protected $senha;
     private $conn;
 
     function __construct(){
@@ -22,11 +22,11 @@ class MUsuario extends Connect {
 
     protected function actionCreate(){
 
-        $sql = 'INSERT INTO usuario (nome,login,senha) VALUES (:nome, :login, :senha)';
+        $sql = 'INSERT INTO usuarios (id_func,user_login,user_senha) VALUES (:idfunc, :login, :senha)';
 
         $query = $this->conn->prepare( $sql );
 
-        $query->bindParam( ":nome", $this->nome, PDO::PARAM_STR );
+        $query->bindParam( ":idfunc", $this->idfunc, PDO::PARAM_INT );
         $query->bindParam( ":login", $this->login, PDO::PARAM_STR );
         $query->bindParam( ":senha", $this->senha, PDO::PARAM_STR );
 

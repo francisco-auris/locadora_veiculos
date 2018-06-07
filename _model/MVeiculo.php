@@ -38,8 +38,8 @@ class MVeiculo extends Connect {
         $query->bindParam( ":idcat", $this->idcat, PDO::PARAM_INT );
         $query->bindParam( ":desc", $this->desc, PDO::PARAM_STR );
         $query->bindParam( ":placa", $this->placa, PDO::PARAM_STR );
-        $query->bindParam( ":cor", $this->placa, PDO::PARAM_STR );
-        $query->bindParam( ":ano", $this->placa, PDO::PARAM_INT );
+        $query->bindParam( ":cor", $this->cor, PDO::PARAM_STR );
+        $query->bindParam( ":ano", $this->ano, PDO::PARAM_INT );
 
         try {
 
@@ -99,6 +99,21 @@ class MVeiculo extends Connect {
     public function listaVeiculos(){
 
         $sql = "SELECT * FROM veiculo V INNER JOIN cat_veiculo C ON V.id_cat = C.id_cat";
+        $consulta = $this->conn->query( $sql );
+
+        if( $consulta and $consulta->rowCount() > 0 ){
+            $objeto = $consulta->fetchAll(PDO::FETCH_OBJ);
+            return $objeto;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+    public function listaCategorias(){
+
+        $sql = "SELECT * FROM cat_veiculo";
         $consulta = $this->conn->query( $sql );
 
         if( $consulta and $consulta->rowCount() > 0 ){
