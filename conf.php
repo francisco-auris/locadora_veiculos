@@ -13,4 +13,4 @@ define( 'MTYPE', 'message_type' );
 define( 'DB', 'locadora' );
 define( 'DBHOST', 'localhost');
 define( 'DBUSER', 'root');
-define( 'DBPSWD', 'N3wG3r3nc1A' );
+define( 'DBPSWD', '{$senha}' );
