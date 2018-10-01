@@ -1,6 +1,6 @@
 <?php
 define( 'DS', DIRECTORY_SEPARATOR );
-define( 'ROOT', 'http://192.168.16.50/locadora/' );
+define( 'ROOT', 'http://{$ipdoservidorweb}/locadora/' );
 //session constates ref name
 define( 'SS_LOGIN', 'app_login' );
 define( 'SS_NAME', 'app_nameuser' );
